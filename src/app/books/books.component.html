@@ -1,0 +1,58 @@
+<div class="col-md-8">
+  <!-- <ul class="list-group" > -->
+    <div class="row" *ngFor="let book of books">
+      <div class="col-xs-3">
+
+      <span type="submit" class="btn btn-danger" (click)="delete(book._id)">Delete</span>
+</div>
+<div>
+    <a
+      href="books/{{ book._id }}"
+      class="list-group-item list-group-item-action"
+    >
+      {{ book.title }}
+    </a>
+  </div>
+  </div>
+
+  <!-- </ul> -->
+</div>
+
+<span>
+  <button class="button_plus" (click)="openModal(mymodal)"></button>
+</span>
+
+<ng-template #mymodal>
+  <div id="exampleModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="author-name" class="col-form-label">author:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="author"
+              />
+            </div>
+            <div class="form-group">
+              <label for="title-name" class="col-form-label">title:</label>
+              <input type="text" class="form-control" formControlName="title" />
+            </div>
+            <div class="form-group">
+              <label for="title-name" class="col-form-label">date:</label>
+              <input type="date" class="form-control" formControlName="date" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

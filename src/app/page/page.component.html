@@ -1,0 +1,23 @@
+<div class="container  ">
+<div class="card  " style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">{{ book.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ book.author }}</h6>
+
+    <ul class="pagination">
+      <li class="page-item" *ngFor="let pageTemp of book.pages">
+        <a class="page-link" href="books/{{ book._id }}/{{ pageTemp._id }}">{{
+          pageTemp.pageNr
+        }}</a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+<div >
+  <div class="col-md-3 card">
+    <p class="mb-0">{{ page.text }}</p>
+  </div>
+</div>
+
+</div>
